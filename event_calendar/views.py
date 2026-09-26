@@ -23,6 +23,6 @@ def calendar_detail(request, calendar_id):
 def event_detail(request, event_id):
     event = get_object_or_404(Event, id=event_id)
 
-    return render(request, "calendar/event_detail.html", {
+    return render(request, "calendar_detail.html", {
         "event": event
     })
