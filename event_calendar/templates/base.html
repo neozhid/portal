@@ -14,13 +14,17 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: #f4f6f9;
-            color: #333;
+            /* Вкажіть шлях до вашого зображення */
+            background: #F4F9FC url('portal/site.fon.jfif') center center / cover no-repeat fixed;
+            color: #1F2D3D;
+            min-height: 100vh;
         }
 
         header {
-            background: #2c3e50;
+            background: rgba(91, 155, 213, 0.9);
+            backdrop-filter: blur(8px);
             padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         header a {
@@ -33,31 +37,39 @@
         main {
             max-width: 900px;
             margin: 30px auto;
-            padding: 0 20px;
+            padding: 20px;
+            /* Напівпрозорий фон з ефектом розмиття для кращої читабельності тексту поверх картинки */
+            background: rgba(244, 249, 252, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(91, 155, 213, 0.15);
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(225, 238, 246, 0.8);
+            box-shadow: 0 4px 16px rgba(91, 155, 213, 0.1);
         }
 
         h1 {
-            color: #2c3e50;
+            color: #1F2D3D;
         }
 
         h2 {
             margin-top: 0;
+            color: #1F2D3D;
         }
 
         a {
-            color: #2980b9;
+            color: #5B9BD5;
             text-decoration: none;
         }
 
         a:hover {
+            color: #4A89C4;
             text-decoration: underline;
         }
 
@@ -67,7 +79,7 @@
         }
 
         .muted {
-            color: #777;
+            color: #6C829B;
         }
     </style>
 </head>
