@@ -1,0 +1,74 @@
+{% extends "calendar/base.html" %}
+
+{% block title %}{{ calendar.name }}{% endblock %}
+
+{% block content %}
+
+<a class="back" href="{% url 'events:calendar_list' %}">
+    ← Назад до календарів
+</a>
+
+<div class="card">
+
+    <h1>{{ calendar.name }}</h1>
+
+    {% if calendar.description %}
+        <p>{{ calendar.description }}</p>
+    {% else %}
+        <p class="muted">Опис відсутній.</p>
+    {% endif %}
+
+    <p class="muted">
+        Створено: {{ calendar.created_at|date:"d.m.Y" }}
+    </p>
+
+</div>
+
+<h2>Події календаря</h2>
+
+{% for event in events %}
+
+<div class="card">
+
+    <h2>
+        <a href="{% url 'events:event_detail' event.id %}">
+            {{ event.title }}
+        </a>
+    </h2>
+
+    <p>
+        <strong>Початок:</strong>
+        {{ event.start_date|date:"d.m.Y H:i" }}
+    </p>
+
+    <p>
+        <strong>Завершення:</strong>
+        {{ event.end_date|date:"d.m.Y H:i" }}
+    </p>
+
+    {% if event.location %}
+        <p>
+            <strong>Місце:</strong>
+            {{ event.location }}
+        </p>
+    {% endif %}
+
+    {% if event.description %}
+        <p>{{ event.description|truncatewords:20 }}</p>
+    {% endif %}
+
+    <a href="{% url 'events:event_detail' event.id %}">
+        Детальніше →
+    </a>
+
+</div>
+
+{% empty %}
+
+<div class="card">
+    <p>У цьому календарі поки немає подій.</p>
+</div>
+
+{% endfor %}
+
+{% endblock %}

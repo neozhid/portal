@@ -1,0 +1,43 @@
+{% extends "calendar/base.html" %}
+
+{% block title %}Мої календарі{% endblock %}
+
+{% block content %}
+
+<h1>Мої календарі</h1>
+
+{% for calendar in calendars %}
+
+<div class="card">
+
+    <h2>
+        <a href="{% url 'events:calendar_detail' calendar.id %}">
+            {{ calendar.name }}
+        </a>
+    </h2>
+
+    {% if calendar.description %}
+        <p>{{ calendar.description }}</p>
+    {% else %}
+        <p class="muted">Опис відсутній.</p>
+    {% endif %}
+
+    <p class="muted">
+        Створено: {{ calendar.created_at|date:"d.m.Y" }}
+    </p>
+
+    <a href="{% url 'events:calendar_detail' calendar.id %}">
+        Переглянути календар →
+    </a>
+
+</div>
+
+{% empty %}
+
+<div class="card">
+    <p>Календарів поки немає.</p>
+</div>
+
+{% endfor %}
+
+{% endblock %}
