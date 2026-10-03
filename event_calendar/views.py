@@ -51,7 +51,7 @@ def calendar_detail(request, calendar_id):
 
     dates = sorted(grouped_events.items())
 
-    return render(request, "calendar/calendar_detail.html", {
+    return render(request, "calendar_detail.html", {
         "calendar": calendar,
         "events": events,
         "dates": dates,
